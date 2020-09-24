@@ -5,7 +5,7 @@ import pandas as pd
 
 
 def get_html(url):
-    html = urlopen(url).read().decode('gbk')
+    html = urlopen(url).read().decode('gb18030')
     return html
 
 
@@ -20,7 +20,7 @@ def get_city(html_text):
         for city_sub_n in city_n_2:
             sub_city_url = city_sub_n.get('href')
             sub_city_url = base_url + sub_city_url
-            sub_city_url_html = urlopen(sub_city_url).read().decode('gbk')
+            sub_city_url_html = urlopen(sub_city_url).read().decode('gb18030')
             soup_street = BeautifulSoup(sub_city_url_html, features='lxml')
             street_res = soup_street.select('strong > a')
             for street_sub_n in street_res:
